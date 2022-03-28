@@ -3,38 +3,35 @@ import 'package:flutter/material.dart';
 class form extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final appTitle = 'Flutter Form Demo';
+    final appTitle = 'Flutter Form ';
     return MaterialApp(
       title: appTitle,
       home: Scaffold(
         appBar: AppBar(
           title: Text(appTitle),
         ),
-        body: MyCustomForm(),
+        body: Formfields(),
       ),
     );
   }
 }
 
-// Create a Form widget.
-class MyCustomForm extends StatefulWidget {
+class Formfields extends StatefulWidget {
   @override
-  MyCustomFormState createState() {
-    return MyCustomFormState();
+  FormfieldsState createState() {
+    return FormfieldsState();
   }
 }
 
-// Create a corresponding State class, which holds data related to the form.
-class MyCustomFormState extends State<MyCustomForm> {
-  // Create a global key that uniquely identifies the Form widget
-  // and allows validation of the form.
+class FormfieldsState extends State<Formfields> {
   final _formKey = GlobalKey<FormState>();
 
   String dropdownValue = 'One';
 
+  get textStyle => null;
+
   @override
   Widget build(BuildContext context) {
-    // Build a Form widget using the _formKey created above.
     return Form(
       key: _formKey,
       child: Column(
@@ -79,39 +76,41 @@ class MyCustomFormState extends State<MyCustomForm> {
               return null;
             },
           ),
-          DropdownButton<String>(
-            value: dropdownValue,
-            //icon: const Icon(Icons.arrow_downward),
-            iconSize: 24,
-            elevation: 16,
-
-            style: const TextStyle(color: Colors.deepPurple),
-            underline: Container(
-              padding: EdgeInsets.only(right: 15, left: 35),
-              height: 2,
-              color: Colors.deepPurpleAccent,
+          Container(
+            padding: EdgeInsets.only(right: 56, left: 56, top: 30),
+            child: DropdownButton<String>(
+              value: dropdownValue,
+              iconSize: 24,
+              elevation: 16,
+              style: const TextStyle(
+                color: Colors.deepPurple,
+              ),
+              underline: Container(
+                child: Text("Dropdown Fields"),
+                padding: EdgeInsets.only(left: 52.0, top: 70.0, right: 35),
+                height: 2,
+                color: Colors.deepPurpleAccent,
+              ),
+              onChanged: (String? newValue) {
+                setState(() {
+                  dropdownValue = newValue!;
+                });
+              },
+              items: <String>['One', 'Two', 'Free', 'Four']
+                  .map<DropdownMenuItem<String>>((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(value),
+                );
+              }).toList(),
             ),
-            onChanged: (String? newValue) {
-              setState(() {
-                dropdownValue = newValue!;
-              });
-            },
-            items: <String>['One', 'Two', 'Free', 'Four']
-                .map<DropdownMenuItem<String>>((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
           ),
           new Container(
               padding: const EdgeInsets.only(left: 150.0, top: 40.0),
               child: new RaisedButton(
                 child: const Text('Submit'),
                 onPressed: () {
-                  // It returns true if the form is valid, otherwise returns false
                   if (_formKey.currentState!.validate()) {
-                    // If the form is valid, display a Snackbar.
                     Scaffold.of(context).showSnackBar(
                         SnackBar(content: Text('Data is in processing.')));
                   }

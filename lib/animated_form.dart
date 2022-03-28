@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:animated_textformfields/animated_textformfields.dart';
+import 'package:flutter_form/form1.dart';
 
 class animated extends StatefulWidget {
   animated({Key? key, required this.title}) : super(key: key);
@@ -38,13 +39,6 @@ class _animatedState extends State<animated> with TickerProviderStateMixin {
           Padding(
             padding:
                 const EdgeInsets.symmetric(horizontal: 8.0, vertical: 24.0),
-            //   child: Text(
-            //     'Animated TextFields Form',
-            //     style: TextStyle(
-            //       fontSize: 24.0,
-            //     ),
-            //     maxLines: 3,
-            //  ),
           ),
           AnimatedTextFormField(
             width: MediaQuery.of(context).size.width * 0.875,
@@ -98,16 +92,14 @@ class _animatedState extends State<animated> with TickerProviderStateMixin {
             cornerRadius: BorderRadius.circular(14.0),
           ),
           new Container(
-              padding: const EdgeInsets.only(left: 55.0, top: 40.0),
+              padding: const EdgeInsets.only(left: 15.0, top: 40.0),
               child: new RaisedButton(
                 child: const Text('Submit'),
                 onPressed: () {
-                  // // It returns true if the form is valid, otherwise returns false
-                  // if (_formKey.currentState.validate()) {
-                  //   // If the form is valid, display a Snackbar.
-                  //   Scaffold.of(context)
-                  //       .showSnackBar(SnackBar(content: Text('Data is in processing.')));
-                  // }
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => form()),
+                  );
                 },
               ))
         ],
