@@ -1,16 +1,3 @@
-# flutter_form
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![Screenshot_20220328_122547](https://user-images.githubusercontent.com/95607404/160343254-8e545d0b-cb9e-4495-8877-426831abf323.jpg)
+![Screenshot_20220328_122452](https://user-images.githubusercontent.com/95607404/160343268-c277dce6-8f8b-40b2-85c1-e9dd2b851de3.jpg)
